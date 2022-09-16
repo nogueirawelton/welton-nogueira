@@ -5,10 +5,9 @@ interface HeaderLinkProps extends LinkProps {
 }
 
 export const HeaderLink = ({ children, href }: HeaderLinkProps) => {
-  const isActive = false;
   return (
-    <Link color={isActive ? "white" : "zinc.300"} href={href} fontWeight="medium" _hover={{
-      color: "teal.500"
+    <Link color="zinc.300" href={href} fontWeight="medium" _hover={{
+      color: "white"
     }}>
       {children}
     </Link>

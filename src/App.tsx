@@ -13,7 +13,7 @@ export const App = ({  }: AppProps) => {
   return (
     <>
       <Header />
-      <Box as="main" pt={128}>
+      <Box as="main">
         <Home />
         <About />
       </Box>

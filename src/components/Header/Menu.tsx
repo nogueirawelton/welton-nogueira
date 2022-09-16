@@ -7,10 +7,10 @@ interface MenuProps {
 export const Menu = ({  }: MenuProps) => {
   return (
     <>
-      <HeaderLink href="">
+      <HeaderLink href="#home">
         Início
       </HeaderLink>
-      <HeaderLink href="">
+      <HeaderLink href="#about">
         Sobre Mim
       </HeaderLink>
       <HeaderLink href="">

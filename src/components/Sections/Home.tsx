@@ -44,7 +44,8 @@ export const Home = ({  }: HomeProps) => {
   });
 
   return (
-    <SimpleGrid as="section" columns={isMobile ? 1 : 2} h="calc(100vh - 8rem)" alignItems="center" spacing="4" maxW={1280} mx="auto" px="8">
+    <Flex id="home" as="section" h="100vh">
+      <SimpleGrid columns={isMobile ? 1 : 2} spacing="4" maxW={1280} mx="auto" px="8" alignItems="center">
       <Box>
         <Text fontSize={["32","48"]}>Olá, Me chamo</Text>
         <Text
@@ -88,5 +89,7 @@ export const Home = ({  }: HomeProps) => {
       </Swiper>
       </Box>
     </SimpleGrid>
+    </Flex>
   )
+    
 }

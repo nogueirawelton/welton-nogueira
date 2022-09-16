@@ -18,7 +18,6 @@ export const Button = ({ href, children, icon, secondary = false }: ButtonProps)
       justifyContent="center"
       gap="4"
       href={href}
-      bg="zinc.800"
       border="2px"
       borderColor={secondary ? "blue.500" :"teal.500"}
       variant="unstyled"

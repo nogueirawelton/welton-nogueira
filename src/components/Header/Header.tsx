@@ -20,7 +20,7 @@ export const Header = ({  }: HeaderProps) => {
   });
 
   return (
-    <Box as="header"position="fixed" left={0} right={0} bg="zinc.800" zIndex={10}>
+    <Box as="header" position="fixed" left={0} right={0} bg="zinc.800" zIndex={10}>
       <Flex h="128" px="8" maxW={1280} mx="auto" align="center" justify="space-between">
         <Img src={logo} />
         {

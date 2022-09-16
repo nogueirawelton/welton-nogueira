@@ -18,6 +18,7 @@ export const theme = extendTheme({
   colors: {
     zinc: {
       300: "#d4d4d8",
+      600: "#737373",
       800: "#27272a",
       900: "#18181b"
     },
