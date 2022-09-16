@@ -1,27 +1,28 @@
+import { Stack } from "@chakra-ui/react"
 import { HeaderLink } from "./HeaderLink"
+import { useState } from "react";
+import { links } from "../../../data.json";
 
 interface MenuProps {
-  
+  isMobile: boolean | undefined;
 }
 
-export const Menu = ({  }: MenuProps) => {
+export const Menu = ({ isMobile }: MenuProps) => {
+  const [activeLinkId, setActiveLinkId] = useState(0);
+
   return (
-    <>
-      <HeaderLink href="#home">
-        Início
-      </HeaderLink>
-      <HeaderLink href="#about">
-        Sobre Mim
-      </HeaderLink>
-      <HeaderLink href="#experiences">
-        Experiência
-      </HeaderLink>
-      <HeaderLink href="">
-        Projetos
-      </HeaderLink>
-      <HeaderLink href="">
-        Contato
-      </HeaderLink>
-    </>
+      <Stack as="nav" spacing="8" direction={isMobile ? "column" : "row"}>
+        {
+          links.map(l => (
+            <HeaderLink
+              key={l.id}
+              link={l}
+              href={l.href}
+              isActive={activeLinkId === l.id}
+              setActiveLink={setActiveLinkId}
+            />
+          ))
+        }
+      </Stack>
   )
 }

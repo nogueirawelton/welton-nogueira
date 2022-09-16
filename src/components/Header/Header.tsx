@@ -1,16 +1,10 @@
 import { Box, Button, Flex, HStack, Img, Stack, useBreakpointValue, useDisclosure } from '@chakra-ui/react';
 import { Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from '@chakra-ui/react';
 import { RiMenu2Fill } from "react-icons/ri";
-
-import logo from '../../assets/logo.svg';
 import { Menu } from './Menu';
+import logo from '../../assets/logo.svg';
 
-
-interface HeaderProps {
-  
-}
-
-export const Header = ({  }: HeaderProps) => {
+export const Header = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -43,17 +37,13 @@ export const Header = ({  }: HeaderProps) => {
                     </Flex>
                   </DrawerHeader>
                   <DrawerBody>
-                    <Stack as="nav" spacing="8">
-                      <Menu />
-                    </Stack>
+                  <Menu isMobile={isMobile}/> 
                   </DrawerBody>
                 </DrawerContent>
               </Drawer>
             </>
           ) : (
-            <HStack as="nav" spacing="8">
-              <Menu /> 
-            </HStack>
+              <Menu isMobile={isMobile}/> 
           )
         }
       </Flex>

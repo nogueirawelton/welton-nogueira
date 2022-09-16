@@ -1,15 +1,21 @@
 import { Link, LinkProps } from "@chakra-ui/react";
 
+interface Link {
+  id: number;
+  name: string;
+}
 interface HeaderLinkProps extends LinkProps {
-  children: string;
+  link: Link;
+  isActive: boolean;
+  setActiveLink: (id: number) => void;
 }
 
-export const HeaderLink = ({ children, href }: HeaderLinkProps) => {
+export const HeaderLink = ({ link, href, isActive, setActiveLink }: HeaderLinkProps) => {
   return (
-    <Link color="zinc.300" href={href} fontWeight="medium" _hover={{
+    <Link color={isActive ? "white" : "zinc.300"} href={href} fontWeight="medium" _hover={{
       color: "white"
-    }}>
-      {children}
+    }} onClick={() => setActiveLink(link.id)}>
+      {link.name}
     </Link>
   )
 }
