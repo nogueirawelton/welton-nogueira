@@ -13,7 +13,7 @@ export const Menu = ({  }: MenuProps) => {
       <HeaderLink href="#about">
         Sobre Mim
       </HeaderLink>
-      <HeaderLink href="">
+      <HeaderLink href="#experiences">
         Experiência
       </HeaderLink>
       <HeaderLink href="">
