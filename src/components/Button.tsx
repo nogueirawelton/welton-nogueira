@@ -11,8 +11,8 @@ export const Button = ({ href, children, icon, secondary = false }: ButtonProps)
   return (
     <ChakraButton
       as="a"
-      w="48"
-      h="14"
+      w={["32","48"]}
+      h={["12", "14"]}
       display="flex"
       alignItems="center"
       justifyContent="center"
