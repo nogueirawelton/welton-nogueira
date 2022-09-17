@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react"
+import { Footer } from "./components/Footer";
 import { Header } from "./components/Header/Header"
 import { About } from "./components/Sections/About";
 import { Experiences } from "./components/Sections/Experiences";
@@ -19,6 +20,7 @@ export const App = ({  }: AppProps) => {
         <About />
         <Experiences />
       </Box>
+      <Footer />
     </>
   )
 }
