@@ -8,7 +8,7 @@ export const ExperienceData = () => {
     <Box flex="1">
       <Flex as="header" justify="space-between" align="center">
         <Heading>{activeExperienceData?.role}</Heading>
-        <Text color="zinc.300">{activeExperienceData?.date}</Text>
+        <Text color="zinc.300">{activeExperienceData?.start_date}{activeExperienceData?.end_date ? `- ${activeExperienceData?.end_date }` : ""}</Text>
       </Flex>
       <Text color="teal.500" fontWeight="medium">{activeExperienceData?.company}</Text>
       <Text color="zinc.300" mt="4" lineHeight="1.4">{activeExperienceData?.description}</Text>
