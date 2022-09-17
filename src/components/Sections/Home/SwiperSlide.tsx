@@ -1,35 +1,37 @@
 import { Box, Img, Text } from "@chakra-ui/react"
 import { Swiper, SwiperSlide as SwiperItem } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, A11y } from 'swiper';
+import { prismic } from "../../../services/prismic";
+import { useEffect, useState } from "react";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const data = [
-  {
-    id: 1,
-    name: 'html',
-    iconURL: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg'
-  },
-  {
-    id: 2,
-    name: 'css',
-    iconURL: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain.svg'
-  },
-  {
-    id: 3,
-    name: 'sass',
-    iconURL: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg'
-  },
-  {
-    id: 4,
-    name: 'tailwind',
-    iconURL: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg'
-  }
-]
+interface Stack {
+  id: string;
+  name: string;
+  src: string;
+}
 
 
 export const SwiperSlide = () => {
+  const [stacks, setStacks] = useState<Stack[]>([]);
+
+  useEffect(() => {
+    prismic.getByType("stack", {
+      orderings: ["document.first_publication_date"]
+    }).then(({results}) => {
+      const formattedStacks = results.map(result => {
+        return {
+          id: result.id,
+          name: result.data.name,
+          src: result.data.src.url
+        }
+      });
+      setStacks(formattedStacks);
+    });
+  }, [])
+
   return (
     <Swiper
     modules={[Navigation, Pagination, Autoplay, A11y]}
@@ -40,10 +42,10 @@ export const SwiperSlide = () => {
       }}
     >
       {
-        data.map(i => (
+        stacks.map(i => (
           <SwiperItem key={i.id}>
             <Box mx="auto" textAlign="center">
-              <Img w="32" mx="auto" src={i.iconURL} alt={i.name}/>
+              <Img w="32" mx="auto" src={i.src} alt={i.name}/>
               <Text my="4">{i.name.toUpperCase()}</Text>
             </Box>
           </SwiperItem>

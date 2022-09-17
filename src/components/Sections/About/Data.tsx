@@ -1,10 +1,34 @@
 import { Box, Flex, Text, Button as ChakraButton } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
 import { AiOutlineCloudDownload } from "react-icons/ai"
 import { MdOutlineMailOutline } from "react-icons/md"
 import { toast } from "react-toastify"
+import { prismic } from "../../../services/prismic"
 import { Button } from "../../Button"
 
+interface Resume {
+  name: string;
+  address: string;
+  description_1: string;
+  description_2: string;
+  src: string;
+}
 export const Data = () => {
+
+  const [resume, setResume] = useState<Resume>({} as Resume);
+
+  useEffect(() => {
+    prismic.getByType("resume").then(({results}) => {
+      const data = results[0].data;
+      setResume({
+        name: data.name.toUpperCase(),
+        address: data.address,
+        description_1: data.description_1,
+        description_2: data.description_2,
+        src: data.src.url
+      });
+    });
+  }, [])
 
   function handleCopyEmail() {
     navigator.clipboard.writeText("welton.nogueira.dev@gmail.com");
@@ -13,12 +37,12 @@ export const Data = () => {
 
   return (
     <Box>
-      <Text fontWeight="bold" fontSize={["32", "48"]}>WELTON NOGUEIRA</Text>
-      <Text color="zinc.300" fontSize={["18", "24"]}>Maricá, Rio de Janeiro</Text>
-      <Text color="zinc.600" mt="8" fontSize={["14", "16"]}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, enim perferendis et libero ab in veritatis est ex modi repudiandae sint voluptatem vel corrupti mollitia eum quo, aperiam repellat nam.</Text>
-      <Text color="zinc.600" mt="2" fontSize={["14", "16"]}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, enim perferendis et libero ab in veritatis est ex modi repudiandae sint voluptatem vel corrupti mollitia eum quo, aperiam repellat nam.</Text>
+      <Text fontWeight="bold" fontSize={["32", "48"]}>{resume.name}</Text>
+      <Text color="zinc.300" fontSize={["18", "24"]}>{resume.address}</Text>
+      <Text color="zinc.600" mt="8" fontSize={["14", "16"]}>{resume.description_1}</Text>
+      <Text color="zinc.600" mt="2" fontSize={["14", "16"]}>{resume.description_2}</Text>
       <Flex gap="8" mt="8">
-        <Button href="" icon={<AiOutlineCloudDownload size={24}/>}>
+        <Button href={resume.src} icon={<AiOutlineCloudDownload size={24}/>}>
           Currículo
         </Button>
         <ChakraButton onClick={handleCopyEmail}

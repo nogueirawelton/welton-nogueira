@@ -1,11 +1,13 @@
-import { createContext, useContext,useState, ReactNode } from "react";
+import { createContext, useContext,useState, ReactNode, useEffect } from "react";
+import { prismic } from "../services/prismic";
 
 
 interface Experience {
-  id: number;
+  id: string;
   company: string;
   role: string;
-  date: string;
+  start_date: string;
+  end_date?: string;
   description: string;
 }
 
@@ -15,43 +17,37 @@ interface ExperienceProviderProps {
 
 interface ExperienceContextData {
   experiences: Experience[];
-  activeCompany: number;
+  activeCompany: string;
   activeExperienceData: Experience | undefined;
-  setCompany: (id: number) => void;
+  setCompany: (id: string) => void;
 }
 const experienceContext = createContext({} as ExperienceContextData);
 
-const experiences = [
-  {
-    id: 1,
-    company: "Animo Consultoria",
-    role: "Desenvolvedor FrontEnd",
-    date: "2019",
-    description: "lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit"
-  },
-  {
-    id: 2,
-    company: "Empresa Teste",
-    role: "Desenvolvedor BackEnd",
-    date: "2020",
-    description: "lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit"
-  },
-  { 
-    id: 3,
-    company: "Empresa Testada",
-    role: "Desenvolvedor FullStack",
-    date: "2021",
-    description: "lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit lorem ipsum dolor sit"
-  },
-]
-
 export function ExperiencesProvider({ children }: ExperienceProviderProps) {
-  const [activeCompany, setActiveCompany] = useState(1);
+  const [activeCompany, setActiveCompany] = useState("");
+  const [experiences, setExperiences] = useState<Experience[]>([]);
+
+  useEffect(() => {
+    prismic.getByType("experience").then(({results}) => {
+      const formattedExperiences = results.map(result => {
+        return {
+          id: result.id,
+          company: result.data.company,
+          role: result.data.role,
+          start_date: result.data.start_date,
+          end_date: result.data.end_date,
+          description: result.data.description,
+        };
+      });
+      setExperiences(formattedExperiences);
+      setActiveCompany(formattedExperiences[0].id);
+    });
+  }, [])
 
   const activeExperienceData = experiences.find(xp => xp.id === activeCompany);
 
 
-  function setCompany(id: number) {
+  function setCompany(id: string) {
     setActiveCompany(id);
   }
 

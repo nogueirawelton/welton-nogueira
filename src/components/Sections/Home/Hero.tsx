@@ -15,7 +15,7 @@ export const Hero = () => {
       >
         Welton Nogueira
       </Text>
-      <Text fontSize={["24","32"]} mt="4">Desenvolvedor FrontEnd</Text>
+      <Text fontSize={["24","32"]} mt="4">e sou Desenvolvedor Web</Text>
       <Flex gap="8" mt="8">
         <Button href="https://www.linkedin.com/in/nogueirawelton" icon={<RiLinkedinFill size="24"/>}>
           LinkedIn

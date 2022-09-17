@@ -1,14 +1,14 @@
 import { Button } from "@chakra-ui/react"
 
 interface Experience {
-  id: number;
+  id: string;
   company: string;
 }
 
 interface ExperienceProps {
   xp: Experience;
   isActive: boolean;
-  setActive: (id: number) => void;
+  setActive: (id: string) => void;
 }
 
 export const Experience = ({ setActive, isActive, xp }: ExperienceProps) => {
