@@ -13,7 +13,7 @@ export const About = () => {
 
   return (
     <Flex id="about" as="section" h={isMobile ? "auto" : "100vh"} bg="zinc.900" align="center">
-      <SimpleGrid maxW={1280} mx="auto" px="8" py={isMobile ? "16" : 0} columns={isMobile ? 1 : 2} spacing={["8", "8", "112"]} alignItems="center" >
+      <SimpleGrid maxW={1280} mx="auto" px="8" py={isMobile ? ["24", "32"] : 0} columns={isMobile ? 1 : 2} spacing={["8", "8", "112"]} alignItems="center" >
         <Img clipPath="circle()" position="relative" src="https://github.com/nogueirawelton.png" mx={isMobile ? "auto" : 0} />
         <Data />
       </SimpleGrid>

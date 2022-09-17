@@ -21,7 +21,7 @@ export const Experience = ({ setActive, isActive, xp }: ExperienceProps) => {
       h="14"
       variant="unstyled"
       borderLeft="2px"
-      borderColor={isActive ? "teal.500" : "#ffffff10"}
+      borderColor={isActive ? "teal.500" : "transparent"}
       background={isActive ? "#ffffff10" : "transparent"}
       rounded="4"
       _hover={{

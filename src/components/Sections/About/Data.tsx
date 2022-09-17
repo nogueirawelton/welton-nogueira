@@ -36,11 +36,11 @@ export const Data = () => {
   }
 
   return (
-    <Box>
-      <Text fontWeight="bold" fontSize={["32", "48"]}>{resume.name}</Text>
-      <Text color="zinc.300" fontSize={["18", "24"]}>{resume.address}</Text>
-      <Text color="zinc.600" mt="8" fontSize={["14", "16"]}>{resume.description_1}</Text>
-      <Text color="zinc.600" mt="2" fontSize={["14", "16"]}>{resume.description_2}</Text>
+    <Box fontSize={["sm", "md"]}>
+      <Text fontWeight="bold" fontSize={["3xl", "5xl"]}>{resume.name}</Text>
+      <Text color="zinc.300" fontSize={["xl", "2xl"]}>{resume.address}</Text>
+      <Text color="zinc.600" mt={["4", "8"]}>{resume.description_1}</Text>
+      <Text color="zinc.600" mt="2">{resume.description_2}</Text>
       <Flex gap="8" mt="8">
         <Button href={resume.src} icon={<AiOutlineCloudDownload size={24}/>}>
           Currículo

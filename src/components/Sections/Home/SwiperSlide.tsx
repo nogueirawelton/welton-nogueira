@@ -46,7 +46,7 @@ export const SwiperSlide = () => {
           <SwiperItem key={i.id}>
             <Box mx="auto" textAlign="center">
               <Img w="32" mx="auto" src={i.src} alt={i.name}/>
-              <Text my="4">{i.name.toUpperCase()}</Text>
+              <Text my="4" fontSize={["sm", "md"]}>{i.name.toUpperCase()}</Text>
             </Box>
           </SwiperItem>
         ))

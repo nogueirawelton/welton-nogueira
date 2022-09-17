@@ -11,8 +11,8 @@ export const Experiences = () => {
 
   return (
     <Box maxW={1280} mx="auto" px="8">
-      <Box id="experiences" as="section" py="32">
-        <Heading fontSize="3xl">
+      <Box id="experiences" as="section" py={["24", "32"]}>
+        <Heading fontSize={["2xl", "3xl"]}>
           EXPERIÊNCIAS
         </Heading>
         <SimpleGrid gridTemplateColumns={isMobile ? "auto" : "300px 1fr"} gap="16" mt="8">
