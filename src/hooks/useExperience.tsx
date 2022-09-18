@@ -30,21 +30,22 @@ export function ExperiencesProvider({ children }: ExperienceProviderProps) {
   useEffect(() => {
     prismic.getByType("experience").then(({results}) => {
       const formattedExperiences = results.map(result => {
+        const { id, data: { company, role, start_date, end_date, description } } = result;
         return {
-          id: result.id,
-          company: result.data.company,
-          role: result.data.role,
-          start_date: new Date(result.data.start_date).toLocaleString("pt-BR", {
+          id,
+          company,
+          role,
+          description,
+          start_date: new Date(start_date).toLocaleString("pt-BR", {
             day:"2-digit",
             month:"2-digit",
             year: "2-digit"
           }),
-          end_date: result.data.end_date ? new Date(result.data.end_date).toLocaleString("pt-BR", {
+          end_date: result.data.end_date ? new Date(end_date).toLocaleString("pt-BR", {
             day:"2-digit",
             month:"2-digit",
             year: "2-digit"
           }) : "",
-          description: result.data.description,
         };
       });
       setExperiences(formattedExperiences);

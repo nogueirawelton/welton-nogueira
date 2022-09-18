@@ -6,12 +6,12 @@ interface Experience {
 }
 
 interface ExperienceProps {
-  xp: Experience;
+  data: Experience;
   isActive: boolean;
   setActive: (id: string) => void;
 }
 
-export const Experience = ({ setActive, isActive, xp }: ExperienceProps) => {
+export const Experience = ({ setActive, isActive, data: { id, company } }: ExperienceProps) => {
   return (
     <Button
       textAlign="left"
@@ -28,9 +28,9 @@ export const Experience = ({ setActive, isActive, xp }: ExperienceProps) => {
         background: "#ffffff10"
       }}
       color={isActive ? "white" : "zinc.300"}
-      onClick={() => setActive(xp.id)}
+      onClick={() => setActive(id)}
     >
-      {xp.company}
+      {company}
     </Button>
   )
 }

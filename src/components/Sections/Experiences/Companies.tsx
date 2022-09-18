@@ -8,7 +8,7 @@ export const Companies = () => {
     <Stack spacing={2}>
       {
         experiences.map(xp => (
-          <Experience key={xp.id} setActive={setCompany} isActive={activeCompany === xp.id} xp={xp} />
+          <Experience key={xp.id} setActive={setCompany} isActive={activeCompany === xp.id} data={xp} />
         ))
       }
     </Stack>

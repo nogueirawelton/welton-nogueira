@@ -19,13 +19,13 @@ export const Data = () => {
 
   useEffect(() => {
     prismic.getByType("resume").then(({results}) => {
-      const data = results[0].data;
+      const { name, address, description_1, description_2, src } = results[0].data;
       setResume({
-        name: data.name.toUpperCase(),
-        address: data.address,
-        description_1: data.description_1,
-        description_2: data.description_2,
-        src: data.src.url
+        name:name.toUpperCase(),
+        address,
+        description_1,
+        description_2,
+        src: src.url
       });
     });
   }, [])
