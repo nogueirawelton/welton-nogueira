@@ -19,7 +19,7 @@ export const Projects = () => {
         <Heading fontSize={["2xl", "3xl"]}>
           PROJETOS
         </Heading>
-        <SimpleGrid mt="8" columns={2} spacing="16" minChildWidth={isMobile ? 311 : 416}>
+        <SimpleGrid mt="8" columns={2} spacing="16" minChildWidth={isMobile ? 280 : 416}>
           <Project />
           <Project />
           <Project />

@@ -10,7 +10,7 @@ export const Project = ({  }: ProjectProps) => {
   
   return (
     <Box>
-      <Box w="513" maxH="375" position="relative" rounded="sm" overflow="hidden">
+      <Box w="512" maxH="375" position="relative" rounded="sm" overflow="hidden">
         <Img transition=".6s" _hover={{
           transform: "scale(1.1)"
         }}src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" />

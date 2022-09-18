@@ -5,9 +5,10 @@ import { links } from "../../../data.json";
 
 interface MenuProps {
   isMobile: boolean | undefined;
+  onClose: () => void;
 }
 
-export const Menu = ({ isMobile }: MenuProps) => {
+export const Menu = ({ isMobile, onClose }: MenuProps) => {
   const [activeLinkId, setActiveLinkId] = useState(0);
 
   return (
@@ -15,6 +16,7 @@ export const Menu = ({ isMobile }: MenuProps) => {
         {
           links.map(l => (
             <HeaderLink
+              onClose={onClose}
               key={l.id}
               link={l}
               href={l.href}

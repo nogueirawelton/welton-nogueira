@@ -37,13 +37,13 @@ export const Header = () => {
                     </Flex>
                   </DrawerHeader>
                   <DrawerBody>
-                  <Menu isMobile={isMobile}/> 
+                  <Menu onClose={onClose} isMobile={isMobile}/> 
                   </DrawerBody>
                 </DrawerContent>
               </Drawer>
             </>
           ) : (
-              <Menu isMobile={isMobile}/> 
+              <Menu onClose={onClose} isMobile={isMobile}/> 
           )
         }
       </Flex>
