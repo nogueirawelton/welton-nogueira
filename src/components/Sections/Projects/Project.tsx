@@ -24,7 +24,21 @@ export const Project = ({ data: { title, date, description, tags, demo, code, ex
         <Img transition=".6s" _hover={{
           transform: "scale(1.1)"
         }}src={example} />
-        <Flex flexWrap="wrap" justify="space-between" align="center" gap="2" w="100%" pt="16" pb="4" px={["4" ,"8"]}position="absolute" bottom={0} right={0} left={0} bg="linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 67.08%)">
+        <Flex
+          flexWrap="wrap"
+          justify="space-between"
+          align="center"
+          gap="2"
+          w="100%"
+          pt="16"
+          pb="4"
+          px={["4","8"]}position="absolute"
+          bottom={0}
+          right={0}
+          left={0}
+          bg="linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 67.08%)"
+          rounded="sm" overflow="hidden"
+        >
           <Heading as="h3" fontSize={["xl", "2xl"]}>{title}</Heading>
           <Text color="zinc.300" fontSize={["sm", "md"]}>{date}</Text>
         </Flex>
