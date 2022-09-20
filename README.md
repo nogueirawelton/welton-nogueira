@@ -1,5 +1,5 @@
 <h1 align="center">
-  NpsCalc
+  Welton Nogueira
 </h1>
 
 <p align="center">
