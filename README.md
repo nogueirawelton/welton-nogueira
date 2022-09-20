@@ -7,34 +7,15 @@
 
 ## 💻 Projeto
 
-Aplicação para cálculo de nps a partir de pesquisas feitas por email.
+Portifólio para divulgação de projetos.
 
 ## ✨ Tecnologias
 
-- [ ] Node
+- [ ] React
 - [ ] Typescript
-- [ ] Express
-- [ ] Prisma
-- [ ] Yup
-- [ ] Jest
-- [ ] Supertest
-- [ ] NodeMailer
+- [ ] ChakraUI
+- [ ] Prismic
 
-## :hammer_and_wrench: Features
-
-- [ ] Criação de Usuários
-- [ ] Criação de Pesquisas
-- [ ] Envio de Email
-- [ ] Cálculo Nps
-
-## Executando o projeto
-
-Utilize o **yarn** ou o **npm install** para instalar as dependências do projeto.
-Em seguida, inicie o projeto.
-
-```cl
-yarn dev
-```
 
 ## 📄 Licença
 
