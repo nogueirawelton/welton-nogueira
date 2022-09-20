@@ -20,7 +20,9 @@ export const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    prismic.getByType("project").then(({results}) => {
+    prismic.getByType("project", {
+      orderings: ["my.project.date desc"]
+    }).then(({results}) => {
       setProjects(
         results.map(result => {
           const { id, data: { title, date, description, tags, code, demo, example } } = result;
